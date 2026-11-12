@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramay Clinic – The Caring Specialists | Multi-Specialty Clinic & 24/7 Pharmacy Lahore</title>
+    <meta name="description" content="Ramay Clinic – The Caring Specialists on Bedian Road, Lahore. Multidisciplinary medical clinic offering Internal Medicine, Nephrology, Orthopedics, Dermatology, Pediatrics, Physiotherapy, Clinical Psychology & 24/7 Medical Store.">
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            900: '#0F172A',
+                            800: '#1E293B',
+                            700: '#334155',
+                        },
+                        teal: {
+                            50: '#F0FDFA',
+                            100: '#CCFBF1',
+                            500: '#14B8A6',
+                            600: '#0D9488',
+                            700: '#0F766E',
+                        },
+                        amber: {
+                            50: '#FFFBEB',
+                            100: '#FEF3C7',
+                            500: '#F59E0B',
+                            600: '#D97706',
+                        },
+                        offwhite: '#F8FAFC',
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(15, 23, 42, 0.06)',
+                        'card': '0 4px 20px -2px rgba(15, 23, 42, 0.04)',
+                        'card-hover': '0 20px 35px -10px rgba(13, 148, 136, 0.12)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Glassmorphism & Subtle Micro-Interactions */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+        .glass-badge {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hero-pattern {
+            background-color: #F8FAFC;
+            background-image: radial-gradient(#CBD5E1 0.85px, transparent 0.85px);
+            background-size: 24px 24px;
+        }
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+        .animate-float {
+            animation: floatSlow 4.5s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+            animation: floatSlow 5s ease-in-out 1.5s infinite;
+        }
+        /* Hide scrollbar for horizontal filter pills on mobile */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-offwhite text-navy-900 font-sans antialiased selection:bg-teal-100 selection:text-teal-900">
+
+    <!-- =====================================================================
+         1. STICKY NAVBAR
+    ===================================================================== -->
+    <header class="sticky top-0 z-40 w-full glass-nav border-b border-slate-200/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-teal-600 to-teal-700 flex items-center justify-center text-white shadow-md shadow-teal-600/20 group-hover:scale-105 transition-transform">
+                        <i data-lucide="heart-pulse" class="w-6 h-6 stroke-[2.2]"></i>
+                    </div>
+                    <div>
+                        <span class="block font-display font-extrabold text-xl tracking-tight text-navy-900 leading-none">
+                            Ramay Clinic
+                        </span>
+                        <span class="block text-xs font-medium text-teal-600 tracking-wide mt-1">
+                            The Caring Specialists
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#departments" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors py-2">Departments</a>
+                    <a href="#doctors" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors py-2">Our Doctors</a>
+                    <a href="#pharmacy" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors py-2">Pharmacy</a>
+                    <a href="#location" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors py-2">Location</a>
+                </nav>
+
+                <!-- Desktop CTA & Mobile Menu Toggle -->
+                <div class="flex items-center gap-3">
+                    <a href="tel:04238900939" class="hidden lg:inline-flex items-center gap-2 text-sm font-semibold text-navy-800 hover:text-teal-600 px-3 py-2 rounded-xl transition-colors">
+                        <i data-lucide="phone-call" class="w-4 h-4 text-teal-600"></i>
+                        <span>042-38900939</span>
+                    </a>
+                    <button onclick="openBookingModal()" class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 active:scale-[0.98] text-white text-sm font-semibold px-5 py-3 rounded-2xl shadow-md shadow-teal-600/20 transition-all cursor-pointer">
+                        <i data-lucide="calendar-plus" class="w-4 h-4"></i>
+                        <span>Book Appointment</span>
+                    </button>
+                    
+                    <!-- Mobile Hamburger Button -->
+                    <button id="mobile-menu-btn" aria-label="Toggle Menu" class="md:hidden p-2.5 rounded-xl text-navy-800 hover:bg-slate-100 focus:outline-none">
+                        <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
+                        <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-2 shadow-xl">
+            <a href="#departments" onclick="navigateToHome('#departments')" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-navy-800 hover:bg-teal-50 hover:text-teal-700">Departments</a>
+            <a href="#doctors" onclick="navigateToHome('#doctors')" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-navy-800 hover:bg-teal-50 hover:text-teal-700">Our Doctors</a>
+            <a href="#pharmacy" onclick="navigateToHome('#pharmacy')" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-navy-800 hover:bg-teal-50 hover:text-teal-700">Pharmacy (24/7)</a>
+            <a href="#location" onclick="navigateToHome('#location')" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-navy-800 hover:bg-teal-50 hover:text-teal-700">Location & Hours</a>
+            <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
+                <a href="tel:04238900939" class="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-slate-100 text-navy-900 font-semibold text-sm">
+                    <i data-lucide="phone" class="w-4 h-4 text-teal-600"></i>
+                    Call 042-38900939
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- =====================================================================
+         MAIN LANDING PAGE VIEW WRAPPER
+    ===================================================================== -->
+    <main id="home-view">
+
+    <!-- =====================================================================
+         2. HERO SECTION (SPLIT LAYOUT)
+    ===================================================================== -->
+    <section class="relative hero-pattern overflow-hidden pt-10 pb-16 lg:pt-16 lg:pb-24 border-b border-slate-200/60">
+        <!-- Ambient Soft Gradient Orbs -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-teal-100/60 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 -left-24 w-80 h-80 bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+                
+                <!-- Left Column: Copy & Dual CTAs -->
+                <div class="lg:col-span-7 space-y-6 text-left">
+                    <!-- Trust Badge -->
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-teal-200/80 shadow-sm">
+                        <span class="relative flex h-2.5 w-2.5">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-500 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-teal-600"></span>
+                        </span>
+                        <span class="text-xs sm:text-sm font-semibold text-navy-800 tracking-wide">
+                            Multi-Specialty Clinic & 24/7 Medical Store • Lahore
+                        </span>
+                    </div>
+
+                    <!-- Main Headline -->
+                    <h1 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-[3.35rem] text-navy-900 tracking-tight leading-[1.14]">
+                        The Caring Specialists: <span class="text-teal-600">Complete Healthcare</span> for Your Family
+                    </h1>
+
+                    <!-- Subheadline -->
+                    <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
+                        Experience compassionate, evidence-based multidisciplinary care on Bedian Road, Lahore. Bringing together board-certified consultants across <strong class="font-semibold text-navy-800">6 specialized medical departments</strong> and an authentic <strong class="font-semibold text-navy-800">24/7 on-site pharmacy</strong> under one welcoming roof.
+                    </p>
+
+                    <!-- Dual CTAs -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                        <button onclick="openBookingModal()" class="inline-flex items-center justify-center gap-2.5 bg-teal-600 hover:bg-teal-700 active:scale-[0.99] text-white font-semibold text-base px-7 py-4 rounded-2xl shadow-lg shadow-teal-600/25 transition-all cursor-pointer">
+                            <i data-lucide="calendar-check" class="w-5 h-5"></i>
+                            <span>Book an Appointment</span>
+                        </button>
+                        <a href="#doctors" class="inline-flex items-center justify-center gap-2.5 bg-white hover:bg-slate-50 text-navy-900 border border-slate-200 hover:border-teal-300 font-semibold text-base px-7 py-4 rounded-2xl shadow-sm transition-all">
+                            <span>View Our Doctors</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-teal-600"></i>
+                        </a>
+                    </div>
+
+                    <!-- Quick Reassurance Strip -->
+                    <div class="pt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm text-slate-500">
+                        <span class="inline-flex items-center gap-1.5">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-teal-600"></i>
+                            PMDC & UK-Qualified Specialists
+                        </span>
+                        <span class="inline-flex items-center gap-1.5">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-teal-600"></i>
+                            Same-Day Walk-In & Scheduled Visits
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Right Column: Modern Clinic Showcase Visual + Floating Trust Badges -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-3xl overflow-hidden bg-white p-3 shadow-soft border border-slate-200/80">
+                        <!-- High-Trust Medical Sanctuary Visual -->
+                        <div class="relative rounded-2xl overflow-hidden aspect-[4/4.3] bg-slate-100">
+                            <img 
+                                src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=900&q=80" 
+                                alt="Modern welcoming medical consultation at Ramay Clinic Lahore" 
+                                class="w-full h-full object-cover object-center"
+                                onerror="this.onerror=null; this.src='https://placehold.co/800x860/0D9488/FFFFFF?text=Ramay+Clinic+Lahore';"
+                            >
+                            <!-- Subtle Gradient Overlay at bottom -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-navy-900/75 via-navy-900/15 to-transparent"></div>
+
+                            <!-- Bottom Overlay Info Inside Card -->
+                            <div class="absolute bottom-4 left-4 right-4 text-white">
+                                <p class="text-xs uppercase tracking-wider text-teal-200 font-semibold">Bedian Road, Lahore</p>
+                                <p class="font-display font-bold text-lg leading-snug">Patient-First Modern Medical Sanctuary</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Badge 1: 4.9★ Patient Rating -->
+                    <div class="animate-float glass-badge absolute -top-4 -left-3 sm:-left-6 px-4 py-3 rounded-2xl shadow-lg border border-slate-200/80 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200/70 flex items-center justify-center text-amber-600">
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-500 text-amber-500"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-1">
+                                <span class="font-display font-extrabold text-base text-navy-900">4.9★</span>
+                                <span class="text-xs font-semibold text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded-md">Verified</span>
+                            </div>
+                            <p class="text-xs text-slate-500 font-medium">Patient Rating</p>
+                        </div>
+                    </div>
+
+                    <!-- Floating Badge 2: 6+ Specialties -->
+                    <div class="animate-float-delayed glass-badge absolute top-1/2 -translate-y-1/2 -right-3 sm:-right-6 px-4 py-3 rounded-2xl shadow-lg border border-slate-200/80 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-teal-50 border border-teal-200/70 flex items-center justify-center text-teal-600">
+                            <i data-lucide="stethoscope" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="font-display font-extrabold text-base text-navy-900">6+ Specialties</p>
+                            <p class="text-xs text-slate-500 font-medium">Expert Consultants</p>
+                        </div>
+                    </div>
+
+                    <!-- Floating Badge 3: 24/7 Pharmacy -->
+                    <div class="glass-badge absolute -bottom-5 left-6 sm:left-10 px-4 py-3 rounded-2xl shadow-lg border border-teal-200/80 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-teal-600 flex items-center justify-center text-white">
+                            <i data-lucide="pill" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-1.5">
+                                <span class="font-display font-extrabold text-sm text-navy-900">24/7 Pharmacy</span>
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            </div>
+                            <p class="text-xs text-slate-500 font-medium">On-Site Medical Store</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         3. TRUST METRICS BAR (4 CLEAN COLUMNS)
+    ===================================================================== -->
+    <section aria-label="Clinic Key Statistics" class="bg-white border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                
+                <!-- Metric 1 -->
+                <div class="flex items-center gap-4 p-3 rounded-2xl hover:bg-offwhite transition-colors">
+                    <div class="w-12 h-12 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="layers" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <p class="font-display font-extrabold text-2xl sm:text-3xl text-navy-900">6+</p>
+                        <p class="text-xs sm:text-sm font-medium text-slate-500">Medical Specialties</p>
+                    </div>
+                </div>
+
+                <!-- Metric 2 -->
+                <div class="flex items-center gap-4 p-3 rounded-2xl hover:bg-offwhite transition-colors">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="award" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <p class="font-display font-extrabold text-2xl sm:text-3xl text-navy-900">1,000+</p>
+                        <p class="text-xs sm:text-sm font-medium text-slate-500">Verified Reviews</p>
+                    </div>
+                </div>
+
+                <!-- Metric 3 -->
+                <div class="flex items-center gap-4 p-3 rounded-2xl hover:bg-offwhite transition-colors">
+                    <div class="w-12 h-12 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <p class="font-display font-extrabold text-2xl sm:text-3xl text-navy-900">Up to 18 Yrs</p>
+                        <p class="text-xs sm:text-sm font-medium text-slate-500">Clinical Experience</p>
+                    </div>
+                </div>
+
+                <!-- Metric 4 -->
+                <div class="flex items-center gap-4 p-3 rounded-2xl hover:bg-offwhite transition-colors">
+                    <div class="w-12 h-12 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="clock" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <p class="font-display font-extrabold text-2xl sm:text-3xl text-navy-900">24/7</p>
+                        <p class="text-xs sm:text-sm font-medium text-slate-500">Medical Store</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         4. MEDICAL DEPARTMENTS GRID (6 CARDS)
+    ===================================================================== -->
+    <section id="departments" class="py-16 sm:py-24 bg-offwhite">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="max-w-3xl mx-auto text-center mb-14">
+                <span class="inline-block text-xs font-bold uppercase tracking-widest text-teal-600 bg-teal-50 border border-teal-200/70 px-3.5 py-1.5 rounded-full mb-3">
+                    Centers of Excellence
+                </span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-navy-900 tracking-tight">
+                    Specialized Medical Departments
+                </h2>
+                <p class="mt-3 text-base sm:text-lg text-slate-600">
+                    Integrated clinical care tailored to every stage of life—from preventive diagnostics and chronic disease management to surgical recovery and mental well-being.
+                </p>
+            </div>
+
+            <!-- 6 Department Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                
+                <!-- Card 1: Internal Medicine, Nephrology & Diabetes -->
+                <div class="group bg-white rounded-2xl p-7 border border-slate-200/80 shadow-card hover:shadow-card-hover hover:-translate-y-1 hover:border-teal-300 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-teal-50 text-teal-600 group-hover:bg-teal-600 group-hover:text-white flex items-center justify-center transition-colors mb-6">
+                            <i data-lucide="activity" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-navy-900 mb-2.5 group-hover:text-teal-700 transition-colors">
+                            Internal Medicine, Nephrology & Diabetes
+                        </h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-5">
+                            Comprehensive management of kidney disorders, hypertension, diabetes mellitus, thyroid imbalances, and complex adult medical conditions.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <button onclick="filterAndScrollToDoctor('Nephrology & Medicine')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 hover:text-teal-700 cursor-pointer">
+                            <span>View Specialist</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="openBookingModal('Internal Medicine, Nephrology & Diabetes', 'Dr. Hafiz Bilal Rasool Ramay')" class="text-xs font-semibold text-slate-500 hover:text-navy-900 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200/70 transition-colors cursor-pointer">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2: Orthopedic Surgery & Bone Care -->
+                <div class="group bg-white rounded-2xl p-7 border border-slate-200/80 shadow-card hover:shadow-card-hover hover:-translate-y-1 hover:border-teal-300 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-teal-50 text-teal-600 group-hover:bg-teal-600 group-hover:text-white flex items-center justify-center transition-colors mb-6">
+                            <i data-lucide="bone" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-navy-900 mb-2.5 group-hover:text-teal-700 transition-colors">
+                            Orthopedic Surgery & Bone Care
+                        </h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-5">
+                            Advanced diagnosis and surgical or conservative treatment for fractures, joint pain, arthritis, spine disorders, and sports injuries.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <button onclick="filterAndScrollToDoctor('Orthopedics')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 hover:text-teal-700 cursor-pointer">
+                            <span>View Specialist</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="openBookingModal('Orthopedic Surgery & Bone Care', 'Dr. Zeeshan Saleem')" class="text-xs font-semibold text-slate-500 hover:text-navy-900 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200/70 transition-colors cursor-pointer">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3: Dermatology & Cosmetology -->
+                <div class="group bg-white rounded-2xl p-7 border border-slate-200/80 shadow-card hover:shadow-card-hover hover:-translate-y-1 hover:border-teal-300 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-teal-50 text-teal-600 group-hover:bg-teal-600 group-hover:text-white flex items-center justify-center transition-colors mb-6">
+                            <i data-lucide="sparkles" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-navy-900 mb-2.5 group-hover:text-teal-700 transition-colors">
+                            Dermatology & Cosmetology
+                        </h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-5">
+                            Clinical skin, hair, and nail treatments alongside safe, dermatologist-supervised aesthetic procedures, acne scar therapy, and skin rejuvenation.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <button onclick="filterAndScrollToDoctor('Dermatology')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 hover:text-teal-700 cursor-pointer">
+                            <span>View Specialist</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="openBookingModal('Dermatology & Cosmetology', 'Dr. Asmaa Batool Ramay')" class="text-xs font-semibold text-slate-500 hover:text-navy-900 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200/70 transition-colors cursor-pointer">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 4: Pediatrics & Child Care -->
+                <div class="group bg-white rounded-2xl p-7 border border-slate-200/80 shadow-card hover:shadow-card-hover hover:-translate-y-1 hover:border-teal-300 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-teal-50 text-teal-600 group-hover:bg-teal-600 group-hover:text-white flex items-center justify-center transition-colors mb-6">
+                            <i data-lucide="baby" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-navy-900 mb-2.5 group-hover:text-teal-700 transition-colors">
+                            Pediatrics & Child Care
+                        </h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-5">
+                            Gentle, attentive healthcare for newborns, infants, and adolescents—covering growth monitoring, vaccinations, nutrition, and childhood illnesses.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <button onclick="filterAndScrollToDoctor('Pediatrics')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 hover:text-teal-700 cursor-pointer">
+                            <span>View Specialist</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="openBookingModal('Pediatrics & Child Care', 'Dr. Adeel Masoud')" class="text-xs font-semibold text-slate-500 hover:text-navy-900 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200/70 transition-colors cursor-pointer">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 5: Physiotherapy & Rehabilitation -->
+                <div class="group bg-white rounded-2xl p-7 border border-slate-200/80 shadow-card hover:shadow-card-hover hover:-translate-y-1 hover:border-teal-300 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-teal-50 text-teal-600 group-hover:bg-teal-600 group-hover:text-white flex items-center justify-center transition-colors mb-6">
+                            <i data-lucide="accessibility" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-navy-900 mb-2.5 group-hover:text-teal-700 transition-colors">
+                            Physiotherapy & Rehabilitation
+                        </h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-5">
+                            Personalized musculoskeletal physical therapy, manual therapy, post-operative recovery, sciatica relief, and mobility restoration programs.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <button onclick="filterAndScrollToDoctor('Physiotherapy')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 hover:text-teal-700 cursor-pointer">
+                            <span>View Specialist</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="openBookingModal('Physiotherapy & Rehabilitation', 'Dr. Rafia Sultana')" class="text-xs font-semibold text-slate-500 hover:text-navy-900 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200/70 transition-colors cursor-pointer">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 6: Clinical Psychology & Counseling -->
+                <div class="group bg-white rounded-2xl p-7 border border-slate-200/80 shadow-card hover:shadow-card-hover hover:-translate-y-1 hover:border-teal-300 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-teal-50 text-teal-600 group-hover:bg-teal-600 group-hover:text-white flex items-center justify-center transition-colors mb-6">
+                            <i data-lucide="brain-circuit" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-navy-900 mb-2.5 group-hover:text-teal-700 transition-colors">
+                            Clinical Psychology & Counseling
+                        </h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-5">
+                            Confidential psychological assessments, cognitive behavioral therapy (CBT), stress and anxiety management, and supportive family counseling.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <button onclick="filterAndScrollToDoctor('Psychology')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 hover:text-teal-700 cursor-pointer">
+                            <span>View Specialist</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="openBookingModal('Clinical Psychology & Counseling', 'Nuzhat Shaheen')" class="text-xs font-semibold text-slate-500 hover:text-navy-900 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200/70 transition-colors cursor-pointer">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         5. MEET OUR SPECIALISTS (INTERACTIVE FILTERABLE 6-DOCTOR GRID)
+    ===================================================================== -->
+    <section id="doctors" class="py-16 sm:py-24 bg-white border-t border-slate-200/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Header -->
+            <div class="max-w-3xl mx-auto text-center mb-10">
+                <span class="inline-block text-xs font-bold uppercase tracking-widest text-teal-600 bg-teal-50 border border-teal-200/70 px-3.5 py-1.5 rounded-full mb-3">
+                    Dedicated Medical Team
+                </span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-navy-900 tracking-tight">
+                    Meet Our Specialists
+                </h2>
+                <p class="mt-3 text-base sm:text-lg text-slate-600">
+                    Filter by specialty to connect with our highly qualified, patient-trusted consultants at Ramay Clinic.
+                </p>
+            </div>
+
+            <!-- Interactive Specialty Filter Tabs -->
+            <div class="flex items-center justify-start md:justify-center gap-2.5 overflow-x-auto no-scrollbar pb-4 mb-8" role="tablist" aria-label="Filter Doctors by Specialty">
+                <button onclick="filterDoctors('All')" data-filter="All" class="filter-btn active shrink-0 px-5 py-2.5 rounded-2xl text-sm font-semibold transition-all cursor-pointer bg-teal-600 text-white shadow-md shadow-teal-600/20">
+                    All Specialists (6)
+                </button>
+                <button onclick="filterDoctors('Nephrology & Medicine')" data-filter="Nephrology & Medicine" class="filter-btn shrink-0 px-5 py-2.5 rounded-2xl text-sm font-semibold transition-all cursor-pointer bg-offwhite text-slate-600 hover:bg-slate-100 border border-slate-200/80">
+                    Nephrology & Medicine
+                </button>
+                <button onclick="filterDoctors('Orthopedics')" data-filter="Orthopedics" class="filter-btn shrink-0 px-5 py-2.5 rounded-2xl text-sm font-semibold transition-all cursor-pointer bg-offwhite text-slate-600 hover:bg-slate-100 border border-slate-200/80">
+                    Orthopedics
+                </button>
+                <button onclick="filterDoctors('Pediatrics')" data-filter="Pediatrics" class="filter-btn shrink-0 px-5 py-2.5 rounded-2xl text-sm font-semibold transition-all cursor-pointer bg-offwhite text-slate-600 hover:bg-slate-100 border border-slate-200/80">
+                    Pediatrics
+                </button>
+                <button onclick="filterDoctors('Dermatology')" data-filter="Dermatology" class="filter-btn shrink-0 px-5 py-2.5 rounded-2xl text-sm font-semibold transition-all cursor-pointer bg-offwhite text-slate-600 hover:bg-slate-100 border border-slate-200/80">
+                    Dermatology
+                </button>
+                <button onclick="filterDoctors('Physiotherapy')" data-filter="Physiotherapy" class="filter-btn shrink-0 px-5 py-2.5 rounded-2xl text-sm font-semibold transition-all cursor-pointer bg-offwhite text-slate-600 hover:bg-slate-100 border border-slate-200/80">
+                    Physiotherapy
+                </button>
+                <button onclick="filterDoctors('Psychology')" data-filter="Psychology" class="filter-btn shrink-0 px-5 py-2.5 rounded-2xl text-sm font-semibold transition-all cursor-pointer bg-offwhite text-slate-600 hover:bg-slate-100 border border-slate-200/80">
+                    Psychology
+                </button>
+            </div>
+
+            <!-- 6-Doctor Equal Prominence Grid (Rendered & Filtered cleanly via JS) -->
+            <div id="doctors-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+                <!-- Populated dynamically on load for clean state management -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         6. ON-SITE PHARMACY & LOCATION HUB
+    ===================================================================== -->
+    <section id="pharmacy" class="py-16 sm:py-24 bg-offwhite border-t border-slate-200/70">
+        <div id="location" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="max-w-3xl mx-auto text-center mb-14">
+                <span class="inline-block text-xs font-bold uppercase tracking-widest text-teal-600 bg-teal-50 border border-teal-200/70 px-3.5 py-1.5 rounded-full mb-3">
+                    24/7 Pharmacy & Clinic Location
+                </span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-navy-900 tracking-tight">
+                    Ramay Clinic & Medical Store
+                </h2>
+                <p class="mt-3 text-base sm:text-lg text-slate-600">
+                    Conveniently situated on Bedian Road, Lahore—combining specialist consultations with a round-the-clock temperature-controlled pharmacy.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                
+                <!-- Left Column: Pharmacy Highlights & Location Details (7 cols) -->
+                <div class="lg:col-span-7 flex flex-col gap-6">
+                    
+                    <!-- 24/7 Medical Store Feature Card -->
+                    <div class="bg-gradient-to-br from-navy-900 to-navy-800 text-white rounded-2xl p-7 sm:p-8 shadow-soft relative overflow-hidden">
+                        <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-teal-500/15 rounded-full blur-2xl pointer-events-none"></div>
+                        
+                        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                            <div class="inline-flex items-center gap-2 bg-teal-500/20 border border-teal-400/30 text-teal-200 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+                                <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+                                Open 24 Hours / 7 Days
+                            </div>
+                            <span class="text-xs font-medium text-slate-300">100% Authentic Medicines</span>
+                        </div>
+
+                        <h3 class="font-display font-bold text-2xl sm:text-3xl mb-3">
+                            On-Site 24/7 Medical Store
+                        </h3>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                            Immediate prescription fulfillment right after your consultation, plus emergency late-night medicine availability. Stocked with genuine pharmaceuticals, cold-chain insulin & vaccines, pediatric care essentials, and surgical supplies.
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-white/10 text-xs sm:text-sm">
+                            <div class="flex items-center gap-2 text-teal-200 font-medium">
+                                <i data-lucide="thermometer-snowflake" class="w-4 h-4 shrink-0"></i>
+                                <span>Cold-Chain Certified</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-teal-200 font-medium">
+                                <i data-lucide="shield-check" class="w-4 h-4 shrink-0"></i>
+                                <span>DRAP Approved Stock</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-teal-200 font-medium">
+                                <i data-lucide="clock-4" class="w-4 h-4 shrink-0"></i>
+                                <span>Day & Night Service</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Address, Hours & Contact Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-1">
+                        
+                        <!-- Address & Hours Card -->
+                        <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-card flex flex-col justify-between space-y-5">
+                            <div>
+                                <div class="w-11 h-11 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center mb-4">
+                                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                </div>
+                                <h4 class="font-display font-bold text-lg text-navy-900 mb-1.5">Clinic Address</h4>
+                                <p class="text-sm text-slate-600 leading-relaxed">
+                                    Ali View Garden, Beside Royal Palace Marriage Hall, Opposite Nadrabad No. 1, Bedian Road, Lahore
+                                </p>
+                            </div>
+
+                            <div class="pt-4 border-t border-slate-100">
+                                <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-600 mb-1">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                    <span>Consultation & Booking Hours</span>
+                                </div>
+                                <p class="text-sm font-semibold text-navy-900">Mon – Sun: 9:00 AM – 11:00 PM</p>
+                                <p class="text-xs text-slate-500 mt-0.5">Medical Store Open 24/7</p>
+                            </div>
+                        </div>
+
+                        <!-- Direct Helpline & Action Card -->
+                        <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-card flex flex-col justify-between space-y-5">
+                            <div>
+                                <div class="w-11 h-11 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center mb-4">
+                                    <i data-lucide="phone-call" class="w-5 h-5"></i>
+                                </div>
+                                <h4 class="font-display font-bold text-lg text-navy-900 mb-2">Appointments & Pharmacy Desk</h4>
+                                <div class="space-y-2.5">
+                                    <a href="tel:04238900939" class="flex items-center justify-between p-2.5 rounded-xl bg-offwhite hover:bg-teal-50 border border-slate-200/70 transition-colors group">
+                                        <div>
+                                            <span class="block text-[11px] uppercase font-semibold text-slate-400">Landline Desk</span>
+                                            <span class="font-display font-bold text-sm text-navy-900 group-hover:text-teal-700">042-38900939</span>
+                                        </div>
+                                        <i data-lucide="phone-outgoing" class="w-4 h-4 text-teal-600"></i>
+                                    </a>
+                                    <a href="tel:03348211969" class="flex items-center justify-between p-2.5 rounded-xl bg-offwhite hover:bg-teal-50 border border-slate-200/70 transition-colors group">
+                                        <div>
+                                            <span class="block text-[11px] uppercase font-semibold text-slate-400">Mobile / WhatsApp</span>
+                                            <span class="font-display font-bold text-sm text-navy-900 group-hover:text-teal-700">0334-8211969</span>
+                                        </div>
+                                        <i data-lucide="message-circle" class="w-4 h-4 text-teal-600"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <button onclick="copyClinicAddress()" id="copy-address-btn" class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200/80 text-navy-800 text-xs font-semibold transition-colors cursor-pointer">
+                                <i data-lucide="copy" class="w-3.5 h-3.5 text-teal-600"></i>
+                                <span id="copy-address-text">Copy Exact Address</span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Map Showcase (5 cols) -->
+                <div class="lg:col-span-5">
+                    <div class="h-full min-h-[380px] bg-white rounded-2xl p-3 border border-slate-200/80 shadow-card flex flex-col">
+                        <div class="relative flex-1 rounded-xl overflow-hidden bg-slate-100 border border-slate-200/60 flex flex-col justify-between">
+                            
+                            <!-- Stylized Interactive Map Grid SVG Backdrop -->
+                            <svg class="absolute inset-0 w-full h-full object-cover" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="500" height="500" fill="#F1F5F9"/>
+                                <!-- Parks / Green Zones -->
+                                <rect x="30" y="40" width="140" height="110" rx="16" fill="#DCFCE7" opacity="0.7"/>
+                                <rect x="320" y="310" width="150" height="140" rx="16" fill="#DCFCE7" opacity="0.6"/>
+                                <!-- Secondary Roads -->
+                                <path d="M0 180H500" stroke="#FFFFFF" stroke-width="14"/>
+                                <path d="M0 340H500" stroke="#FFFFFF" stroke-width="12"/>
+                                <path d="M160 0V500" stroke="#FFFFFF" stroke-width="14"/>
+                                <path d="M360 0V500" stroke="#FFFFFF" stroke-width="12"/>
+                                <!-- Main Artery: Bedian Road -->
+                                <path d="M60 500L420 0" stroke="#CBD5E1" stroke-width="28" stroke-linecap="round"/>
+                                <path d="M60 500L420 0" stroke="#FFFFFF" stroke-width="22" stroke-linecap="round"/>
+                                <path d="M60 500L420 0" stroke="#0D9488" stroke-width="3" stroke-dasharray="10 10" opacity="0.5"/>
+                                <!-- Landmark Labels -->
+                                <text x="275" y="130" fill="#64748B" font-family="Inter, sans-serif" font-size="11" font-weight="600" transform="rotate(-54 275 130)">BEDIAN ROAD, LAHORE</text>
+                                <text x="48" y="95" fill="#15803D" font-family="Inter, sans-serif" font-size="10" font-weight="600">Ali View Garden</text>
+                                <text x="335" y="375" fill="#475569" font-family="Inter, sans-serif" font-size="10" font-weight="600">Opp. Nadrabad No. 1</text>
+                            </svg>
+
+                            <!-- Top Interactive Map Pill -->
+                            <div class="relative z-10 p-4 flex items-center justify-between">
+                                <span class="glass-badge px-3 py-1.5 rounded-xl text-xs font-bold text-navy-900 shadow-sm border border-slate-200/80 inline-flex items-center gap-1.5">
+                                    <i data-lucide="navigation" class="w-3.5 h-3.5 text-teal-600"></i>
+                                    Bedian Road Landmark Map
+                                </span>
+                                <span class="glass-badge px-2.5 py-1 rounded-lg text-[11px] font-semibold text-teal-700 border border-teal-200">
+                                    Easy Parking
+                                </span>
+                            </div>
+
+                            <!-- Center Animated Clinic Pin -->
+                            <div class="relative z-10 my-auto mx-auto flex flex-col items-center">
+                                <div class="glass-badge px-4 py-2.5 rounded-2xl shadow-lg border border-teal-200 text-center mb-2 max-w-[230px]">
+                                    <p class="font-display font-extrabold text-xs text-navy-900">Ramay Clinic & Medical Store</p>
+                                    <p class="text-[11px] text-slate-500 mt-0.5">Beside Royal Palace Marriage Hall</p>
+                                </div>
+                                <div class="relative flex items-center justify-center">
+                                    <span class="animate-ping absolute inline-flex h-12 w-12 rounded-full bg-teal-500 opacity-30"></span>
+                                    <div class="w-11 h-11 rounded-full bg-teal-600 text-white shadow-lg flex items-center justify-center border-4 border-white">
+                                        <i data-lucide="heart-pulse" class="w-5 h-5"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bottom Map Action Bar -->
+                            <div class="relative z-10 p-4">
+                                <a href="https://maps.google.com/?q=Ramay+Clinic+Bedian+Road+Lahore" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 bg-navy-900 hover:bg-teal-700 text-white font-semibold text-sm py-3.5 px-5 rounded-xl shadow-md transition-colors">
+                                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                                    <span>Open Directions in Google Maps</span>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         8. FOOTER
+    ===================================================================== -->
+    <footer class="bg-navy-900 text-slate-300 pt-16 pb-10 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
+                
+                <!-- Col 1: Brand & Mission (4 cols) -->
+                <div class="lg:col-span-4 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-teal-600 flex items-center justify-center text-white">
+                            <i data-lucide="heart-pulse" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <span class="block font-display font-extrabold text-xl text-white leading-none">Ramay Clinic</span>
+                            <span class="block text-xs font-medium text-teal-400 mt-1">The Caring Specialists</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        A trusted multi-specialty medical sanctuary and 24/7 pharmacy on Bedian Road, Lahore—committed to ethical, compassionate, and evidence-based care for every family.
+                    </p>
+                    <div class="pt-1 flex items-center gap-3">
+                        <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 rounded-full">
+                            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                            4.9★ Rated (1,000+ Reviews)
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Department Links (4 cols) -->
+                <div class="lg:col-span-4">
+                    <h4 class="font-display font-bold text-white text-base mb-4">Medical Departments</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li>
+                            <button onclick="openBookingModal('Internal Medicine, Nephrology & Diabetes', 'Dr. Hafiz Bilal Rasool Ramay')" class="text-slate-400 hover:text-teal-400 transition-colors text-left cursor-pointer">
+                                Internal Medicine, Nephrology & Diabetes
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="openBookingModal('Orthopedic Surgery & Bone Care', 'Dr. Zeeshan Saleem')" class="text-slate-400 hover:text-teal-400 transition-colors text-left cursor-pointer">
+                                Orthopedic Surgery & Bone Care
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="openBookingModal('Dermatology & Cosmetology', 'Dr. Asmaa Batool Ramay')" class="text-slate-400 hover:text-teal-400 transition-colors text-left cursor-pointer">
+                                Dermatology & Cosmetology
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="openBookingModal('Pediatrics & Child Care', 'Dr. Adeel Masoud')" class="text-slate-400 hover:text-teal-400 transition-colors text-left cursor-pointer">
+                                Pediatrics & Child Care
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="openBookingModal('Physiotherapy & Rehabilitation', 'Dr. Rafia Sultana')" class="text-slate-400 hover:text-teal-400 transition-colors text-left cursor-pointer">
+                                Physiotherapy & Rehabilitation
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="openBookingModal('Clinical Psychology & Counseling', 'Nuzhat Shaheen')" class="text-slate-400 hover:text-teal-400 transition-colors text-left cursor-pointer">
+                                Clinical Psychology & Counseling
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Emergency & Contact Info (4 cols) -->
+                <div class="lg:col-span-4 space-y-4">
+                    <h4 class="font-display font-bold text-white text-base mb-4">Contact & 24/7 Pharmacy</h4>
+                    <div class="space-y-3 text-sm text-slate-400">
+                        <p class="flex items-start gap-2.5">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-teal-400 shrink-0 mt-1"></i>
+                            <span>Ali View Garden, Beside Royal Palace Marriage Hall, Opposite Nadrabad No. 1, Bedian Road, Lahore</span>
+                        </p>
+                        <p class="flex items-center gap-2.5">
+                            <i data-lucide="clock" class="w-4 h-4 text-teal-400 shrink-0"></i>
+                            <span>Clinic: Mon–Sun, 9:00 AM – 11:00 PM | Store: 24/7</span>
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-2">
+                        <p class="text-xs font-bold uppercase tracking-wider text-teal-400">Appointment & Pharmacy Helpline</p>
+                        <div class="flex flex-wrap items-center gap-4">
+                            <a href="tel:04238900939" class="font-display font-bold text-white hover:text-teal-400 text-base transition-colors">
+                                042-38900939
+                            </a>
+                            <span class="text-slate-600">|</span>
+                            <a href="tel:03348211969" class="font-display font-bold text-white hover:text-teal-400 text-base transition-colors">
+                                0334-8211969
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>&copy; <span id="current-year"></span> Ramay Clinic – The Caring Specialists. All rights reserved.</p>
+                <div class="flex items-center gap-6">
+                    <a href="#departments" onclick="navigateToHome('#departments')" class="hover:text-slate-300 transition-colors">Departments</a>
+                    <a href="#doctors" onclick="navigateToHome('#doctors')" class="hover:text-slate-300 transition-colors">Specialists</a>
+                    <a href="#pharmacy" onclick="navigateToHome('#pharmacy')" class="hover:text-slate-300 transition-colors">24/7 Pharmacy</a>
+                    <button onclick="openBookingModal()" class="text-teal-400 hover:text-teal-300 font-semibold cursor-pointer">Book Visit</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </main>
+
+    <!-- =====================================================================
+         DEDICATED DOCTOR PROFILE PAGE VIEW (SPA ROUTE)
+    ===================================================================== -->
+    <section id="doctor-profile-view" class="hidden min-h-screen bg-offwhite pb-20">
+        <!-- Profile Content Injected Dynamically -->
+    </section>
+
+    <!-- =====================================================================
+         7. INTERACTIVE APPOINTMENT BOOKING MODAL
+    ===================================================================== -->
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-navy-900/65 backdrop-blur-sm transition-opacity" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        
+        <!-- Modal Container -->
+        <div class="bg-white rounded-3xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden transform transition-all max-h-[92vh] overflow-y-auto">
+            
+            <!-- Modal Header -->
+            <div class="bg-gradient-to-r from-navy-900 to-navy-800 px-6 py-5 text-white flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-teal-600 flex items-center justify-center text-white shrink-0">
+                        <i data-lucide="calendar-check" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 id="modal-title" class="font-display font-bold text-lg leading-tight">Book an Appointment</h3>
+                        <p class="text-xs text-teal-300">Ramay Clinic • Bedian Road, Lahore</p>
+                    </div>
+                </div>
+                <button onclick="closeBookingModal()" aria-label="Close Modal" class="p-2 rounded-xl text-slate-300 hover:text-white hover:bg-white/10 transition-colors cursor-pointer">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Booking Form View -->
+            <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="p-6 sm:p-7 space-y-4">
+                
+                <!-- Patient Name -->
+                <div>
+                    <label for="patient-name" class="block text-xs font-bold uppercase tracking-wider text-navy-800 mb-1.5">
+                        Patient Full Name <span class="text-rose-500">*</span>
+                    </label>
+                    <div class="relative">
+                        <i data-lucide="user" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                        <input type="text" id="patient-name" required placeholder="e.g., Muhammad Ahmed" class="w-full pl-10 pr-4 py-3 rounded-xl bg-offwhite border border-slate-200 focus:bg-white focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20 outline-none text-sm text-navy-900 transition-all">
+                    </div>
+                </div>
+
+                <!-- Phone Number -->
+                <div>
+                    <label for="patient-phone" class="block text-xs font-bold uppercase tracking-wider text-navy-800 mb-1.5">
+                        Mobile / WhatsApp Number <span class="text-rose-500">*</span>
+                    </label>
+                    <div class="relative">
+                        <i data-lucide="phone" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                        <input type="tel" id="patient-phone" required placeholder="e.g., 0300-1234567" class="w-full pl-10 pr-4 py-3 rounded-xl bg-offwhite border border-slate-200 focus:bg-white focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20 outline-none text-sm text-navy-900 transition-all">
+                    </div>
+                </div>
+
+                <!-- Department Selection -->
+                <div>
+                    <label for="booking-department" class="block text-xs font-bold uppercase tracking-wider text-navy-800 mb-1.5">
+                        Medical Department <span class="text-rose-500">*</span>
+                    </label>
+                    <select id="booking-department" onchange="syncDoctorWithDepartment()" required class="w-full px-4 py-3 rounded-xl bg-offwhite border border-slate-200 focus:bg-white focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20 outline-none text-sm text-navy-900 transition-all">
+                        <option value="Internal Medicine, Nephrology & Diabetes">Internal Medicine, Nephrology & Diabetes</option>
+                        <option value="Orthopedic Surgery & Bone Care">Orthopedic Surgery & Bone Care</option>
+                        <option value="Dermatology & Cosmetology">Dermatology & Cosmetology</option>
+                        <option value="Pediatrics & Child Care">Pediatrics & Child Care</option>
+                        <option value="Physiotherapy & Rehabilitation">Physiotherapy & Rehabilitation</option>
+                        <option value="Clinical Psychology & Counseling">Clinical Psychology & Counseling</option>
+                    </select>
+                </div>
+
+                <!-- Doctor Selection -->
+                <div>
+                    <label for="booking-doctor" class="block text-xs font-bold uppercase tracking-wider text-navy-800 mb-1.5">
+                        Preferred Specialist <span class="text-rose-500">*</span>
+                    </label>
+                    <select id="booking-doctor" onchange="syncDepartmentWithDoctor()" required class="w-full px-4 py-3 rounded-xl bg-offwhite border border-slate-200 focus:bg-white focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20 outline-none text-sm text-navy-900 transition-all">
+                        <option value="Dr. Hafiz Bilal Rasool Ramay">Dr. Hafiz Bilal Rasool Ramay (Nephrologist & Physician)</option>
+                        <option value="Dr. Zeeshan Saleem">Dr. Zeeshan Saleem (Orthopedic Surgeon)</option>
+                        <option value="Dr. Adeel Masoud">Dr. Adeel Masoud (Pediatrician)</option>
+                        <option value="Dr. Asmaa Batool Ramay">Dr. Asmaa Batool Ramay (Dermatologist & Cosmetologist)</option>
+                        <option value="Dr. Rafia Sultana">Dr. Rafia Sultana (Physiotherapist)</option>
+                        <option value="Nuzhat Shaheen">Nuzhat Shaheen (Clinical Psychologist)</option>
+                    </select>
+                </div>
+
+                <!-- Preferred Date & Time Slot -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="booking-date" class="block text-xs font-bold uppercase tracking-wider text-navy-800 mb-1.5">
+                            Preferred Date <span class="text-rose-500">*</span>
+                        </label>
+                        <input type="date" id="booking-date" required class="w-full px-3.5 py-3 rounded-xl bg-offwhite border border-slate-200 focus:bg-white focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20 outline-none text-sm text-navy-900 transition-all">
+                    </div>
+                    <div>
+                        <label for="booking-time" class="block text-xs font-bold uppercase tracking-wider text-navy-800 mb-1.5">
+                            Preferred Time
+                        </label>
+                        <select id="booking-time" class="w-full px-3.5 py-3 rounded-xl bg-offwhite border border-slate-200 focus:bg-white focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20 outline-none text-sm text-navy-900 transition-all">
+                            <option value="Morning (9:00 AM – 1:00 PM)">Morning (9:00 AM – 1:00 PM)</option>
+                            <option value="Afternoon (1:00 PM – 5:00 PM)">Afternoon (1:00 PM – 5:00 PM)</option>
+                            <option value="Evening (5:00 PM – 11:00 PM)" selected>Evening (5:00 PM – 11:00 PM)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Submit CTA -->
+                <div class="pt-2">
+                    <button type="submit" class="w-full inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 active:scale-[0.99] text-white font-semibold text-sm py-3.5 px-6 rounded-2xl shadow-lg shadow-teal-600/25 transition-all cursor-pointer">
+                        <i data-lucide="check-circle" class="w-4 h-4"></i>
+                        <span>Confirm Appointment Request</span>
+                    </button>
+                    <p class="text-[11px] text-center text-slate-400 mt-2.5">
+                        Our reception desk will confirm your token time via call/SMS within 15 minutes.
+                    </p>
+                </div>
+            </form>
+
+            <!-- Booking Confirmation State (Hidden until submitted) -->
+            <div id="booking-success" class="hidden p-7 sm:p-8 text-center space-y-5">
+                <div class="w-16 h-16 rounded-full bg-teal-50 border border-teal-200 text-teal-600 flex items-center justify-center mx-auto">
+                    <i data-lucide="check-circle-2" class="w-9 h-9"></i>
+                </div>
+                <div>
+                    <span class="inline-block text-xs font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-3 py-1 rounded-full mb-2">
+                        Request Received
+                    </span>
+                    <h4 class="font-display font-extrabold text-2xl text-navy-900">Appointment Requested!</h4>
+                    <p id="confirmation-summary" class="text-sm text-slate-600 mt-2 leading-relaxed">
+                        Thank you. Your consultation request has been logged with Ramay Clinic Reception.
+                    </p>
+                </div>
+
+                <div class="bg-offwhite rounded-2xl p-4 border border-slate-200/80 text-left text-xs space-y-1.5 text-slate-600">
+                    <p><strong class="text-navy-900">Location:</strong> Ali View Garden, Bedian Road, Lahore</p>
+                    <p><strong class="text-navy-900">Urgent Desk:</strong> 042-38900939 / 0334-8211969</p>
+                </div>
+
+                <button onclick="closeBookingModal()" class="w-full py-3.5 px-6 rounded-2xl bg-navy-900 hover:bg-navy-800 text-white font-semibold text-sm transition-colors cursor-pointer">
+                    Done & Return to Clinic
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         JAVASCRIPT APPLICATION LOGIC
+    ===================================================================== -->
+    <script>
+        // 1. Complete Doctor Directory Data (Equal Prominence + Rich Profile Details)
+        const DOCTORS_DATA = [
+            {
+                id: 'dr-bilal',
+                name: 'Dr. Hafiz Bilal Rasool Ramay',
+                role: 'Nephrologist, Diabetologist & Consultant Physician',
+                category: 'Nephrology & Medicine',
+                department: 'Internal Medicine, Nephrology & Diabetes',
+                qualifications: 'MBBS (K.E), MRCP (UK), FCPS (Nephrology), ESCE (UK)',
+                experience: '11+ Yrs Exp',
+                rating: '4.9★',
+                reviewCount: '340+ Verified Reviews',
+                initials: 'BR',
+                accentBg: 'from-teal-600 to-teal-700',
+                focus: 'Kidney Care, Hypertension, Diabetes & Internal Medicine',
+                bio: 'Dr. Hafiz Bilal Rasool Ramay is a UK-trained Consultant Physician, Nephrologist, and Diabetologist with over 11 years of clinical excellence. A graduate of King Edward Medical University (K.E) and Fellow of the College of Physicians & Surgeons (FCPS Nephrology) alongside MRCP (UK), he specializes in preserving kidney health, managing complex diabetes, and treating resistant hypertension with a compassionate, patient-centered approach.',
+                education: [
+                    'MBBS — King Edward Medical University (K.E), Lahore',
+                    'MRCP (UK) — Royal College of Physicians, United Kingdom',
+                    'FCPS (Nephrology) — College of Physicians & Surgeons Pakistan',
+                    'ESCE (UK) — European Specialty Certificate in Nephrology'
+                ],
+                conditions: [
+                    'Chronic Kidney Disease (CKD) & Proteinuria',
+                    'Type 1 & Type 2 Diabetes Mellitus Management',
+                    'Resistant Hypertension & Blood Pressure Disorders',
+                    'Diabetic Nephropathy & Kidney Stone Prevention',
+                    'Electrolyte Imbalances & Acute Kidney Injury',
+                    'General Internal Medicine, Thyroid & Metabolic Care'
+                ],
+                schedule: [
+                    { days: 'Monday – Saturday', time: '5:00 PM – 10:00 PM' },
+                    { days: 'Sunday', time: 'By Prior Appointment' }
+                ],
+                languages: 'English, Urdu, Punjabi',
+                patientReview: {
+                    quote: 'Dr. Bilal listens with remarkable patience and explains lab reports clearly without rushing. My father’s diabetes and kidney markers stabilized within months under his care.',
+                    author: 'Tariq Mahmood • Verified Patient'
+                }
+            },
+            {
+                id: 'dr-zeeshan',
+                name: 'Dr. Zeeshan Saleem',
+                role: 'Orthopedic Surgeon',
+                category: 'Orthopedics',
+                department: 'Orthopedic Surgery & Bone Care',
+                qualifications: 'MBBS, MS (Orth)',
+                experience: '18+ Yrs Exp',
+                rating: '4.7★',
+                reviewCount: '290+ Verified Reviews',
+                initials: 'ZS',
+                accentBg: 'from-navy-800 to-navy-900',
+                focus: 'Fracture Management, Joint Replacement, Arthritis & Spine',
+                bio: 'With over 18 years of dedicated surgical and clinical experience, Dr. Zeeshan Saleem is a senior Orthopedic Surgeon renowned for accurate musculoskeletal diagnosis and both conservative and surgical bone care. He helps patients of all ages regain pain-free mobility following fractures, sports injuries, degenerative arthritis, and spinal conditions.',
+                education: [
+                    'MBBS — PMDC Recognized Medical Institution',
+                    'MS (Orthopedic Surgery) — Postgraduate Specialization in Trauma & Joint Care'
+                ],
+                conditions: [
+                    'Osteoarthritis & Rheumatoid Joint Pain',
+                    'Complex Fractures & Trauma Management',
+                    'Lower Back Pain, Slip Disc & Sciatica',
+                    'Knee, Hip & Shoulder Pain Management',
+                    'Sports Injuries & Ligament Sprains',
+                    'Osteoporosis & Pediatric Bone Care'
+                ],
+                schedule: [
+                    { days: 'Monday – Saturday', time: '6:00 PM – 10:30 PM' },
+                    { days: 'Sunday', time: '12:00 PM – 3:00 PM' }
+                ],
+                languages: 'English, Urdu, Punjabi',
+                patientReview: {
+                    quote: 'Very honest and experienced orthopedic consultant. He avoided unnecessary surgery for my mother’s knee arthritis and put her on a conservative plan that worked wonders.',
+                    author: 'Saima Kamran • Verified Patient'
+                }
+            },
+            {
+                id: 'dr-adeel',
+                name: 'Dr. Adeel Masoud',
+                role: 'Pediatrician',
+                category: 'Pediatrics',
+                department: 'Pediatrics & Child Care',
+                qualifications: 'MBBS, DCH, FCPS (Paediatrics)',
+                experience: '13+ Yrs Exp',
+                rating: '5.0★',
+                reviewCount: '215+ Verified Reviews',
+                initials: 'AM',
+                accentBg: 'from-teal-600 to-emerald-700',
+                focus: 'Newborn Care, Childhood Immunity, Growth & Nutrition',
+                bio: 'Dr. Adeel Masoud is a highly trusted Consultant Pediatrician with 13+ years of experience caring for newborns, infants, toddlers, and adolescents. Holding both DCH and FCPS (Paediatrics), he combines thorough clinical evaluation with a calm, reassuring bedside manner that puts both children and parents at ease.',
+                education: [
+                    'MBBS — Recognized Medical University',
+                    'DCH — Diploma in Child Health',
+                    'FCPS (Paediatrics) — College of Physicians & Surgeons Pakistan'
+                ],
+                conditions: [
+                    'Newborn Checkups & Neonatal Jaundice',
+                    'Childhood Respiratory Infections, Asthma & Allergies',
+                    'Growth, Developmental & Nutritional Assessments',
+                    'Routine & Catch-Up Vaccination Guidance',
+                    'Pediatric Fever, Typhoid & Gastroenteritis',
+                    'Adolescent Health & Immunity Support'
+                ],
+                schedule: [
+                    { days: 'Monday – Saturday', time: '5:30 PM – 10:00 PM' },
+                    { days: 'Sunday', time: '11:00 AM – 2:00 PM' }
+                ],
+                languages: 'English, Urdu, Punjabi',
+                patientReview: {
+                    quote: 'Best pediatrician on Bedian Road! Dr. Adeel never prescribes unnecessary antibiotics and takes the time to educate parents thoroughly.',
+                    author: 'Hina Usman • Mother of Two'
+                }
+            },
+            {
+                id: 'dr-asmaa',
+                name: 'Dr. Asmaa Batool Ramay',
+                role: 'Dermatologist & Cosmetologist',
+                category: 'Dermatology',
+                department: 'Dermatology & Cosmetology',
+                qualifications: 'MBBS, FCPS',
+                experience: '7+ Yrs Exp',
+                rating: '5.0★',
+                reviewCount: '185+ Verified Reviews',
+                initials: 'AB',
+                accentBg: 'from-teal-700 to-cyan-800',
+                focus: 'Clinical Skin Diseases, Hair Restoration & Aesthetic Care',
+                bio: 'Dr. Asmaa Batool Ramay is a board-certified Consultant Dermatologist and Cosmetologist (MBBS, FCPS) offering evidence-based medical dermatology alongside safe, personalized aesthetic treatments. She focuses on diagnosing the root cause of skin and hair concerns to deliver natural, lasting results.',
+                education: [
+                    'MBBS — Bachelor of Medicine, Bachelor of Surgery',
+                    'FCPS (Dermatology) — College of Physicians & Surgeons Pakistan'
+                ],
+                conditions: [
+                    'Acne, Acne Scarring & Pigmentation (Melasma)',
+                    'Hair Fall, Alopecia & Scalp Disorders (PRP Therapy)',
+                    'Eczema, Psoriasis & Fungal Skin Infections',
+                    'Medical Facial Rejuvenation & Anti-Aging Care',
+                    'Allergic Contact Dermatitis & Urticaria',
+                    'Nail Disorders & Pediatric Skin Conditions'
+                ],
+                schedule: [
+                    { days: 'Monday – Saturday', time: '4:00 PM – 8:30 PM' },
+                    { days: 'Sunday', time: 'By Prior Appointment' }
+                ],
+                languages: 'English, Urdu, Punjabi',
+                patientReview: {
+                    quote: 'Dr. Asmaa transformed my skin after years of struggling with stubborn acne and melasma. Her medical approach is ethical, gentle, and effective.',
+                    author: 'Ayesha Farooq • Verified Patient'
+                }
+            },
+            {
+                id: 'dr-rafia',
+                name: 'Dr. Rafia Sultana',
+                role: 'Physiotherapist',
+                category: 'Physiotherapy',
+                department: 'Physiotherapy & Rehabilitation',
+                qualifications: 'DPT, MS-OMPT',
+                experience: '6+ Yrs Exp',
+                rating: '5.0★',
+                reviewCount: '140+ Verified Reviews',
+                initials: 'RS',
+                accentBg: 'from-slate-700 to-navy-900',
+                focus: 'Orthopedic Manual Therapy, Back/Neck Pain & Rehab',
+                bio: 'Dr. Rafia Sultana is a specialized Orthopedic Manual Physiotherapist (DPT, MS-OMPT) with over 6 years of hands-on rehabilitation experience. She designs one-on-one, goal-oriented physical therapy programs to relieve chronic pain, restore joint mechanics, and accelerate post-surgical or neurological recovery.',
+                education: [
+                    'DPT — Doctor of Physical Therapy',
+                    'MS-OMPT — Master of Science in Orthopedic Manual Physical Therapy'
+                ],
+                conditions: [
+                    'Cervical & Lumbar Spondylosis (Neck & Back Pain)',
+                    'Sciatica & Nerve Compression Relief',
+                    'Frozen Shoulder & Rotator Cuff Rehabilitation',
+                    'Post-Fracture & Post-Joint Replacement Rehab',
+                    'Bell’s Palsy & Stroke Neurological Physiotherapy',
+                    'Postural Correction & Ergonomic Pain Management'
+                ],
+                schedule: [
+                    { days: 'Monday – Saturday', time: '3:00 PM – 9:00 PM' },
+                    { days: 'Sunday', time: 'Closed' }
+                ],
+                languages: 'English, Urdu, Punjabi',
+                patientReview: {
+                    quote: 'After just six manual therapy sessions with Dr. Rafia, my severe frozen shoulder mobility improved dramatically. Very professional and caring.',
+                    author: 'Nighat Perveen • Verified Patient'
+                }
+            },
+            {
+                id: 'nuzhat-shaheen',
+                name: 'Nuzhat Shaheen',
+                role: 'Clinical Psychologist',
+                category: 'Psychology',
+                department: 'Clinical Psychology & Counseling',
+                qualifications: 'ADCP, MSc Psychology, MSCP',
+                experience: '7+ Yrs Exp',
+                rating: null,
+                reviewCount: 'Confidential Care',
+                initials: 'NS',
+                accentBg: 'from-teal-600 to-teal-800',
+                focus: 'CBT Therapy, Anxiety & Stress Relief, Psychological Assessment',
+                bio: 'Nuzhat Shaheen is an experienced Clinical Psychologist (ADCP, MSc Psychology, MSCP) dedicated to providing a safe, empathetic, and strictly confidential therapeutic space. Using evidence-based modalities including Cognitive Behavioral Therapy (CBT), she supports individuals, adolescents, and families navigating emotional and behavioral challenges.',
+                education: [
+                    'MSc Psychology — Master of Science in Psychology',
+                    'ADCP — Advanced Diploma in Clinical Psychology',
+                    'MSCP — Master of Science in Clinical Psychology'
+                ],
+                conditions: [
+                    'Anxiety Disorders, Panic Attacks & Phobias',
+                    'Depression, Low Mood & Burnout Recovery',
+                    'Stress Management & Sleep Difficulties',
+                    'Adolescent Behavioral & Academic Counseling',
+                    'Grief, Trauma & Relationship Counseling',
+                    'Comprehensive Psychometric & Personality Assessments'
+                ],
+                schedule: [
+                    { days: 'Monday – Saturday', time: '4:00 PM – 9:00 PM' },
+                    { days: 'Sunday', time: 'By Prior Appointment' }
+                ],
+                languages: 'English, Urdu, Punjabi',
+                patientReview: {
+                    quote: 'A deeply empathetic and non-judgmental listener. Her practical CBT strategies helped me regain calm and balance during a very overwhelming period.',
+                    author: 'Verified Counseling Client'
+                }
+            }
+        ];
+
+        // 2. Render Doctor Cards with Equal Visual Weight + View Profile Route
+        function renderDoctors(filterCategory = 'All') {
+            const grid = document.getElementById('doctors-grid');
+            if (!grid) return;
+
+            const filtered = filterCategory === 'All'
+                ? DOCTORS_DATA
+                : DOCTORS_DATA.filter(doc => doc.category === filterCategory);
+
+            grid.innerHTML = filtered.map(doc => `
+                <article class="bg-offwhite rounded-2xl p-6 sm:p-7 border border-slate-200/90 shadow-card hover:bg-white hover:shadow-card-hover hover:-translate-y-1 hover:border-teal-300 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <!-- Top Row: Monogram Avatar + Rating / Verified Badge -->
+                        <div class="flex items-start justify-between gap-3 mb-5">
+                            <button onclick="openDoctorProfile('${doc.id}')" class="w-14 h-14 rounded-2xl bg-gradient-to-br ${doc.accentBg} text-white font-display font-bold text-lg flex items-center justify-center shadow-md shrink-0 hover:scale-105 transition-transform cursor-pointer" aria-label="View ${doc.name} Profile">
+                                ${doc.initials}
+                            </button>
+                            <div class="flex flex-col items-end gap-1.5">
+                                ${doc.rating ? `
+                                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-amber-50 border border-amber-200/80 text-amber-700 font-display font-bold text-xs">
+                                        <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500 text-amber-500"></i>
+                                        ${doc.rating}
+                                    </span>
+                                ` : `
+                                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-teal-50 border border-teal-200/80 text-teal-700 font-semibold text-xs">
+                                        <i data-lucide="badge-check" class="w-3.5 h-3.5"></i>
+                                        Verified Specialist
+                                    </span>
+                                `}
+                                <span class="text-xs font-semibold text-slate-500 bg-white px-2.5 py-0.5 rounded-lg border border-slate-200/70">
+                                    ${doc.experience}
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Specialty Badge -->
+                        <div class="mb-2.5">
+                            <span class="inline-block text-xs font-bold text-teal-700 bg-teal-50 border border-teal-200/60 px-3 py-1 rounded-full">
+                                ${doc.role}
+                            </span>
+                        </div>
+
+                        <!-- Doctor Name (Clickable to Profile) -->
+                        <h3 class="font-display font-extrabold text-xl text-navy-900 leading-snug mb-2">
+                            <button onclick="openDoctorProfile('${doc.id}')" class="text-left hover:text-teal-600 transition-colors cursor-pointer">
+                                ${doc.name}
+                            </button>
+                        </h3>
+
+                        <!-- Qualifications -->
+                        <p class="text-xs font-semibold text-slate-700 bg-white border border-slate-200/70 rounded-xl px-3 py-2 mb-3 leading-relaxed">
+                            <span class="text-slate-400 font-medium block text-[10px] uppercase tracking-wider mb-0.5">Qualifications</span>
+                            ${doc.qualifications}
+                        </p>
+
+                        <!-- Clinical Focus -->
+                        <p class="text-xs text-slate-500 leading-relaxed mb-6">
+                            ${doc.focus}
+                        </p>
+                    </div>
+
+                    <!-- Card Footer Dual Actions: View Profile & Book Visit -->
+                    <div class="pt-4 border-t border-slate-200/70 grid grid-cols-2 gap-2.5">
+                        <button onclick="openDoctorProfile('${doc.id}')" class="inline-flex items-center justify-center gap-1.5 bg-white hover:bg-slate-100 text-navy-900 border border-slate-200 font-semibold text-xs sm:text-sm py-3 px-3 rounded-xl transition-all cursor-pointer">
+                            <i data-lucide="user-check" class="w-4 h-4 text-teal-600"></i>
+                            <span>View Profile</span>
+                        </button>
+                        <button onclick="openBookingModal('${doc.department}', '${doc.name}')" class="inline-flex items-center justify-center gap-1.5 bg-teal-600 hover:bg-teal-700 active:scale-[0.99] text-white font-semibold text-xs sm:text-sm py-3 px-3 rounded-xl shadow-sm transition-all cursor-pointer">
+                            <i data-lucide="calendar-plus" class="w-4 h-4"></i>
+                            <span>Book Visit</span>
+                        </button>
+                    </div>
+                </article>
+            `).join('');
+
+            // Re-initialize Lucide icons for newly injected HTML
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        }
+
+        // 2B. Dedicated Doctor Profile Page Navigation & Rendering
+        function openDoctorProfile(doctorId, pushHash = true) {
+            const doc = DOCTORS_DATA.find(d => d.id === doctorId);
+            if (!doc) return;
+
+            const homeView = document.getElementById('home-view');
+            const profileView = document.getElementById('doctor-profile-view');
+
+            // Other specialists for quick switching at bottom of profile
+            const otherDoctors = DOCTORS_DATA.filter(d => d.id !== doctorId);
+
+            profileView.innerHTML = `
+                <!-- Breadcrumb & Back Navigation Bar -->
+                <div class="bg-white border-b border-slate-200/80">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap items-center justify-between gap-3">
+                        <button onclick="navigateToHome('#doctors')" class="inline-flex items-center gap-2 text-sm font-semibold text-navy-800 hover:text-teal-600 transition-colors cursor-pointer">
+                            <i data-lucide="arrow-left" class="w-4 h-4 text-teal-600"></i>
+                            <span>Back to All Specialists</span>
+                        </button>
+                        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs text-slate-500">
+                            <button onclick="navigateToHome()" class="hover:text-teal-600 cursor-pointer">Home</button>
+                            <span>/</span>
+                            <button onclick="navigateToHome('#doctors')" class="hover:text-teal-600 cursor-pointer">Our Doctors</button>
+                            <span>/</span>
+                            <span class="font-semibold text-navy-900 truncate max-w-[180px] sm:max-w-none">${doc.name}</span>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Profile Hero Banner -->
+                <div class="hero-pattern border-b border-slate-200/80 py-10 sm:py-14">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-soft">
+                            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+                                
+                                <!-- Left: Avatar & Core Credentials -->
+                                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br ${doc.accentBg} text-white font-display font-extrabold text-3xl sm:text-4xl flex items-center justify-center shadow-lg shrink-0">
+                                        ${doc.initials}
+                                    </div>
+                                    <div class="space-y-2.5">
+                                        <div class="flex flex-wrap items-center gap-2">
+                                            <span class="inline-block text-xs font-bold text-teal-700 bg-teal-50 border border-teal-200/70 px-3.5 py-1 rounded-full">
+                                                ${doc.role}
+                                            </span>
+                                            ${doc.rating ? `
+                                                <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-amber-700 font-display font-bold text-xs">
+                                                    <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500 text-amber-500"></i>
+                                                    ${doc.rating} (${doc.reviewCount})
+                                                </span>
+                                            ` : `
+                                                <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-teal-50 border border-teal-200/80 text-teal-700 font-semibold text-xs">
+                                                    <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                                                    ${doc.reviewCount}
+                                                </span>
+                                            `}
+                                        </div>
+
+                                        <h1 class="font-display font-extrabold text-2xl sm:text-4xl text-navy-900 tracking-tight">
+                                            ${doc.name}
+                                        </h1>
+
+                                        <p class="text-sm sm:text-base font-semibold text-slate-700">
+                                            ${doc.qualifications}
+                                        </p>
+
+                                        <div class="flex flex-wrap items-center gap-x-5 gap-y-1.5 pt-1 text-xs sm:text-sm text-slate-500">
+                                            <span class="inline-flex items-center gap-1.5 font-medium text-navy-800">
+                                                <i data-lucide="award" class="w-4 h-4 text-teal-600"></i>
+                                                ${doc.experience} Clinical Experience
+                                            </span>
+                                            <span class="inline-flex items-center gap-1.5">
+                                                <i data-lucide="map-pin" class="w-4 h-4 text-teal-600"></i>
+                                                Ramay Clinic, Bedian Road, Lahore
+                                            </span>
+                                            <span class="inline-flex items-center gap-1.5">
+                                                <i data-lucide="languages" class="w-4 h-4 text-teal-600"></i>
+                                                ${doc.languages}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Right: Primary Appointment Box -->
+                                <div class="lg:w-72 shrink-0 bg-offwhite rounded-2xl p-5 border border-slate-200/80 space-y-3">
+                                    <div class="flex items-center justify-between text-xs">
+                                        <span class="font-semibold text-slate-500">Consultation Status</span>
+                                        <span class="inline-flex items-center gap-1.5 font-bold text-emerald-700">
+                                            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                            Accepting Patients
+                                        </span>
+                                    </div>
+                                    <button onclick="openBookingModal('${doc.department}', '${doc.name}')" class="w-full inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 active:scale-[0.99] text-white font-semibold text-sm py-3.5 px-5 rounded-xl shadow-md shadow-teal-600/20 transition-all cursor-pointer">
+                                        <i data-lucide="calendar-check" class="w-4 h-4"></i>
+                                        <span>Book Appointment</span>
+                                    </button>
+                                    <a href="tel:04238900939" class="w-full inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-navy-900 border border-slate-200 font-semibold text-xs py-2.5 px-4 rounded-xl transition-colors">
+                                        <i data-lucide="phone" class="w-3.5 h-3.5 text-teal-600"></i>
+                                        <span>Call Desk: 042-38900939</span>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Profile Details Two-Column Layout -->
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        
+                        <!-- Left Column (8 cols): Bio, Conditions Treated, Education, Testimonial -->
+                        <div class="lg:col-span-8 space-y-8">
+                            
+                            <!-- About Specialist -->
+                            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-card">
+                                <h2 class="font-display font-bold text-xl text-navy-900 mb-3 flex items-center gap-2.5">
+                                    <i data-lucide="user-round" class="w-5 h-5 text-teal-600"></i>
+                                    <span>About ${doc.name}</span>
+                                </h2>
+                                <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                                    ${doc.bio}
+                                </p>
+                            </div>
+
+                            <!-- Conditions & Treatments -->
+                            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-card">
+                                <h2 class="font-display font-bold text-xl text-navy-900 mb-5 flex items-center gap-2.5">
+                                    <i data-lucide="stethoscope" class="w-5 h-5 text-teal-600"></i>
+                                    <span>Clinical Expertise & Conditions Treated</span>
+                                </h2>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                                    ${doc.conditions.map(item => `
+                                        <div class="flex items-start gap-2.5 p-3.5 rounded-xl bg-offwhite border border-slate-200/60">
+                                            <i data-lucide="check-circle-2" class="w-4 h-4 text-teal-600 shrink-0 mt-0.5"></i>
+                                            <span class="text-sm font-medium text-navy-800">${item}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+
+                            <!-- Education & Credentials -->
+                            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-card">
+                                <h2 class="font-display font-bold text-xl text-navy-900 mb-5 flex items-center gap-2.5">
+                                    <i data-lucide="graduation-cap" class="w-5 h-5 text-teal-600"></i>
+                                    <span>Qualifications & Medical Training</span>
+                                </h2>
+                                <ul class="space-y-3">
+                                    ${doc.education.map(edu => `
+                                        <li class="flex items-center gap-3 text-sm font-medium text-slate-700">
+                                            <span class="w-2 h-2 rounded-full bg-teal-600 shrink-0"></span>
+                                            <span>${edu}</span>
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+
+                            <!-- Featured Patient Feedback -->
+                            <div class="bg-gradient-to-br from-teal-50 to-white rounded-2xl p-6 sm:p-8 border border-teal-200/80 shadow-card">
+                                <div class="flex items-center gap-1 text-amber-500 mb-3">
+                                    <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                                </div>
+                                <blockquote class="text-sm sm:text-base italic text-navy-800 leading-relaxed mb-3">
+                                    "${doc.patientReview.quote}"
+                                </blockquote>
+                                <p class="text-xs font-bold text-teal-700 uppercase tracking-wider">
+                                    — ${doc.patientReview.author}
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <!-- Right Column (4 cols): Clinic Timings, Location & On-Site Pharmacy -->
+                        <div class="lg:col-span-4 space-y-6">
+                            
+                            <!-- OPD Timings Card -->
+                            <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-card">
+                                <h3 class="font-display font-bold text-lg text-navy-900 mb-4 flex items-center gap-2">
+                                    <i data-lucide="clock" class="w-5 h-5 text-teal-600"></i>
+                                    <span>OPD Consultation Timings</span>
+                                </h3>
+                                <div class="space-y-3">
+                                    ${doc.schedule.map(slot => `
+                                        <div class="p-3.5 rounded-xl bg-offwhite border border-slate-200/70 flex items-center justify-between gap-2">
+                                            <span class="text-xs font-bold text-navy-800">${slot.days}</span>
+                                            <span class="text-xs font-semibold text-teal-700 bg-teal-50 px-2.5 py-1 rounded-lg">${slot.time}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                                <p class="text-xs text-slate-500 mt-4 leading-relaxed">
+                                    *Walk-in tokens are available during OPD hours, or book online in advance for priority scheduling.
+                                </p>
+                            </div>
+
+                            <!-- Clinic Location & 24/7 Pharmacy Card -->
+                            <div class="bg-navy-900 text-white rounded-2xl p-6 shadow-soft space-y-4">
+                                <span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-teal-300 bg-teal-500/15 border border-teal-400/25 px-3 py-1 rounded-full">
+                                    <i data-lucide="pill" class="w-3.5 h-3.5"></i>
+                                    24/7 On-Site Pharmacy
+                                </span>
+                                <h3 class="font-display font-bold text-lg">Ramay Clinic & Medical Store</h3>
+                                <p class="text-xs text-slate-300 leading-relaxed">
+                                    Ali View Garden, Beside Royal Palace Marriage Hall, Opposite Nadrabad No. 1, Bedian Road, Lahore
+                                </p>
+                                <div class="pt-2 border-t border-white/10 space-y-2 text-xs">
+                                    <p class="flex items-center justify-between">
+                                        <span class="text-slate-400">Reception:</span>
+                                        <a href="tel:04238900939" class="font-bold text-white hover:text-teal-300">042-38900939</a>
+                                    </p>
+                                    <p class="flex items-center justify-between">
+                                        <span class="text-slate-400">WhatsApp / Mobile:</span>
+                                        <a href="tel:03348211969" class="font-bold text-white hover:text-teal-300">0334-8211969</a>
+                                    </p>
+                                </div>
+                                <a href="https://maps.google.com/?q=Ramay+Clinic+Bedian+Road+Lahore" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold text-xs py-3 px-4 rounded-xl transition-colors">
+                                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-teal-400"></i>
+                                    <span>Get Google Maps Directions</span>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Other Specialists Quick Switcher -->
+                    <div class="mt-16 pt-12 border-t border-slate-200/80">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="font-display font-extrabold text-xl sm:text-2xl text-navy-900">Other Specialists at Ramay Clinic</h3>
+                            <button onclick="navigateToHome('#doctors')" class="text-sm font-semibold text-teal-600 hover:text-teal-700 cursor-pointer">
+                                View All (6)
+                            </button>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                            ${otherDoctors.map(other => `
+                                <button onclick="openDoctorProfile('${other.id}')" class="text-left bg-white hover:bg-teal-50/50 rounded-2xl p-4 border border-slate-200/80 hover:border-teal-300 shadow-card transition-all cursor-pointer flex flex-col justify-between">
+                                    <div>
+                                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br ${other.accentBg} text-white font-display font-bold text-xs flex items-center justify-center mb-3">
+                                            ${other.initials}
+                                        </div>
+                                        <p class="font-display font-bold text-sm text-navy-900 line-clamp-1">${other.name}</p>
+                                        <p class="text-xs text-teal-700 font-medium mt-0.5 line-clamp-1">${other.role}</p>
+                                    </div>
+                                    <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-slate-500 mt-3">
+                                        View Profile <i data-lucide="arrow-right" class="w-3 h-3 text-teal-600"></i>
+                                    </span>
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Switch visible view to Doctor Profile
+            homeView.classList.add('hidden');
+            profileView.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            if (pushHash) {
+                history.pushState({ doctorId }, '', `#doctor/${doctorId}`);
+            }
+
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        }
+
+        // Return to Main Clinic Landing Page (optionally scrolling to a section)
+        function navigateToHome(sectionHash = '', pushHash = true) {
+            const homeView = document.getElementById('home-view');
+            const profileView = document.getElementById('doctor-profile-view');
+
+            profileView.classList.add('hidden');
+            homeView.classList.remove('hidden');
+
+            if (pushHash) {
+                history.pushState({}, '', sectionHash || window.location.pathname);
+            }
+
+            if (sectionHash) {
+                const target = document.querySelector(sectionHash);
+                if (target) {
+                    setTimeout(() => target.scrollIntoView({ behavior: 'smooth' }), 30);
+                    return;
+                }
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Handle browser Back/Forward buttons for doctor profile routes
+        window.addEventListener('popstate', () => {
+            const hash = window.location.hash;
+            if (hash.startsWith('#doctor/')) {
+                const doctorId = hash.replace('#doctor/', '');
+                openDoctorProfile(doctorId, false);
+            } else {
+                navigateToHome(hash, false);
+            }
+        });
+
+        // 3. Filter Button Handler
+        function filterDoctors(category) {
+            // Update active pill styling
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.dataset.filter === category) {
+                    btn.classList.remove('bg-offwhite', 'text-slate-600', 'hover:bg-slate-100', 'border', 'border-slate-200/80');
+                    btn.classList.add('bg-teal-600', 'text-white', 'shadow-md', 'shadow-teal-600/20');
+                } else {
+                    btn.classList.remove('bg-teal-600', 'text-white', 'shadow-md', 'shadow-teal-600/20');
+                    btn.classList.add('bg-offwhite', 'text-slate-600', 'hover:bg-slate-100', 'border', 'border-slate-200/80');
+                }
+            });
+
+            renderDoctors(category);
+        }
+
+        // Helper from Department Cards to scroll smoothly & filter doctor
+        function filterAndScrollToDoctor(category) {
+            filterDoctors(category);
+            const section = document.getElementById('doctors');
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // 4. Appointment Modal Controls
+        function openBookingModal(department = '', doctor = '') {
+            const modal = document.getElementById('booking-modal');
+            const form = document.getElementById('booking-form');
+            const successBox = document.getElementById('booking-success');
+            const deptSelect = document.getElementById('booking-department');
+            const docSelect = document.getElementById('booking-doctor');
+
+            // Reset modal to form state
+            form.classList.remove('hidden');
+            successBox.classList.add('hidden');
+
+            // Pre-select department and doctor if triggered from a specific card
+            if (department) {
+                deptSelect.value = department;
+            }
+            if (doctor) {
+                docSelect.value = doctor;
+            } else if (department) {
+                syncDoctorWithDepartment();
+            }
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('booking-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        // Synchronize Department <-> Doctor dropdowns intelligently
+        function syncDoctorWithDepartment() {
+            const dept = document.getElementById('booking-department').value;
+            const docSelect = document.getElementById('booking-doctor');
+            const match = DOCTORS_DATA.find(d => d.department === dept);
+            if (match) {
+                docSelect.value = match.name;
+            }
+        }
+
+        function syncDepartmentWithDoctor() {
+            const docName = document.getElementById('booking-doctor').value;
+            const deptSelect = document.getElementById('booking-department');
+            const match = DOCTORS_DATA.find(d => d.name === docName);
+            if (match) {
+                deptSelect.value = match.department;
+            }
+        }
+
+        // Handle Appointment Form Submission
+        function handleBookingSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('patient-name').value.trim();
+            const phone = document.getElementById('patient-phone').value.trim();
+            const doctor = document.getElementById('booking-doctor').value;
+            const date = document.getElementById('booking-date').value;
+            const time = document.getElementById('booking-time').value;
+
+            const summaryEl = document.getElementById('confirmation-summary');
+            summaryEl.innerHTML = `
+                Thank you, <strong class="text-navy-900">${name}</strong>. Your visit with <strong class="text-teal-700">${doctor}</strong> on <strong class="text-navy-900">${date}</strong> (${time}) has been requested. We will confirm shortly at <strong class="text-navy-900">${phone}</strong>.
+            `;
+
+            document.getElementById('booking-form').classList.add('hidden');
+            document.getElementById('booking-success').classList.remove('hidden');
+
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        }
+
+        // Copy Clinic Address with fallback
+        function copyClinicAddress() {
+            const address = "Ramay Clinic & Medical Store, Ali View Garden, Beside Royal Palace Marriage Hall, Opposite Nadrabad No. 1, Bedian Road, Lahore";
+            const textSpan = document.getElementById('copy-address-text');
+            
+            const tempInput = document.createElement('textarea');
+            tempInput.value = address;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                textSpan.textContent = "Address Copied!";
+                setTimeout(() => {
+                    textSpan.textContent = "Copy Exact Address";
+                }, 2500);
+            } catch (err) {
+                textSpan.textContent = "Bedian Road, Lahore";
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        // Initialize on Page Load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Render initial doctor cards
+            renderDoctors('All');
+
+            // Support direct URL hash routing to a specialist profile
+            if (window.location.hash.startsWith('#doctor/')) {
+                const initialDocId = window.location.hash.replace('#doctor/', '');
+                openDoctorProfile(initialDocId, false);
+            }
+
+            // Initialize Lucide icons
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+
+            // Set default date picker to today
+            const dateInput = document.getElementById('booking-date');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.value = today;
+                dateInput.min = today;
+            }
+
+            // Set current year in footer
+            const yearEl = document.getElementById('current-year');
+            if (yearEl) {
+                yearEl.textContent = new Date().getFullYear();
+            }
+
+            // Mobile Menu Toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const iconOpen = document.getElementById('menu-icon-open');
+            const iconClose = document.getElementById('menu-icon-close');
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    iconOpen.classList.toggle('hidden');
+                    iconClose.classList.toggle('hidden');
+                });
+
+                document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        iconOpen.classList.remove('hidden');
+                        iconClose.classList.add('hidden');
+                    });
+                });
+            }
+
+            // Close modal when clicking outside dialog box or pressing Escape
+            const modal = document.getElementById('booking-modal');
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) closeBookingModal();
+                });
+            }
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeBookingModal();
+            });
+        });
+    </script>
+</body>
+</html>
